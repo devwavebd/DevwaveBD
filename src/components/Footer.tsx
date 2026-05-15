@@ -1,0 +1,125 @@
+import { Link } from 'react-router-dom';
+import { Facebook, Youtube, Instagram, MessageCircle, Send } from 'lucide-react';
+
+export default function Footer() {
+  return (
+    <footer className="bg-brand-bg relative pt-16 pb-10 border-t border-white/5" id="footer">
+      {/* Top Banner (Working Hours) */}
+      <div className="absolute top-0 right-0 left-0 lg:left-1/3 h-16 bg-brand-primary flex items-center px-8 lg:px-12 z-20">
+        <div className="text-white font-bold text-sm tracking-wide">
+          Saturday - Thursday : 9:00 Am - 12:00 Pm
+        </div>
+        {/* Tail element from image */}
+        <div className="absolute top-16 left-0 border-t-[16px] border-t-brand-primary border-r-[16px] border-r-transparent hidden lg:block" />
+      </div>
+
+      <div className="custom-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 relative z-10 items-center">
+          {/* Logo Section */}
+          <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-start lg:border-r lg:border-white/10 lg:pr-16 py-20">
+            <Link to="/" className="inline-block mb-8">
+              <img 
+                src="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Artboard-1-e1778821694516.png" 
+                alt="Devwave BD Logo" 
+                className="w-[220px] h-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </Link>
+            {/* Small Map */}
+            <div className="w-full max-w-[320px] h-40 rounded-2xl overflow-hidden opacity-50 hover:opacity-80 transition-opacity border border-white/10 shadow-2xl">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.953388867!2d90.3371962382433!3d23.7806206512683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa569fd2a1158ee!2sDhaka!5e0!3m2!1sen!2sbd!4v1715750000000!5m2!1sen!2sbd" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={false}
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
+          {/* Links Sections */}
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 lg:pl-16 py-20">
+            {/* Company */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Company</h4>
+              <ul className="space-y-4">
+                {['Marketplace', 'Campaigns', 'Risk Management', 'Pricing'].map((link) => (
+                  <li key={link}>
+                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Explore */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Explore</h4>
+              <ul className="space-y-4">
+                {['Marketplace', 'Campaigns', 'Risk Management', 'Pricing'].map((link) => (
+                  <li key={link}>
+                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Industries</h4>
+              <ul className="space-y-4">
+                {['Economy', 'Financial Planning', 'Tax Return', 'Management'].map((link) => (
+                  <li key={link}>
+                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                      {link}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Newsletter</h4>
+              <div className="relative group">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="w-full bg-white/5 border border-white/10 rounded-lg py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all pr-14"
+                />
+                <button className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-primary transition-colors hover:text-brand-primary">
+                  <Send size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          {/* Socials */}
+          <div className="flex items-center space-x-6">
+            {[Facebook, Youtube, Instagram, MessageCircle].map((Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110"
+              >
+                <Icon size={24} />
+              </a>
+            ))}
+          </div>
+
+          {/* Copyright */}
+          <div className="text-gray-500 text-sm font-medium tracking-tight text-center md:text-right">
+            © {new Date().getFullYear()} Devwarebd. All Rights Reserved. <span className="text-gray-600 ml-1">Designed & Developed by RARA Team</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
