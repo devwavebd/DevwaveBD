@@ -5,7 +5,7 @@ import { LayoutGrid, ShoppingBag, Home, User, ExternalLink } from 'lucide-react'
 import { useState } from 'react';
 import CTA from '../components/home/CTA';
 
-const CATEGORIES = ['All', 'Business Website', 'WooCommerce', 'Listing Portal', 'Personal Brand', 'Creative Portfolio'];
+const CATEGORIES = ['All', 'Business Website', 'WooCommerce', 'Healthcare', 'Creative Portfolio', 'Educational'];
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -64,7 +64,9 @@ export default function Portfolio() {
                         <span className="text-[9px] md:text-[11px] text-gray-500 font-mono tracking-tight uppercase truncate">devwavebd.com/showcase/{project.title.toLowerCase().replace(/\s+/g, '-')}</span>
                       </div>
                     </div>
-                    <ExternalLink size={14} className="text-gray-500 group-hover:text-brand-primary transition-colors cursor-pointer" />
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink size={14} className="text-gray-500 group-hover:text-brand-primary transition-colors cursor-pointer" />
+                    </a>
                   </div>
 
                   {/* Vertical Scrolling Image Container */}
@@ -77,13 +79,13 @@ export default function Portfolio() {
                     />
                     
                     {/* View Demo Button Overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                         <div className="px-8 py-3 rounded-full glass border-white/20 text-white font-black text-[10px] tracking-[0.2em] uppercase shadow-2xl backdrop-blur-xl hover:scale-110 active:scale-95 transition-all cursor-pointer">
                           View Demo
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
 

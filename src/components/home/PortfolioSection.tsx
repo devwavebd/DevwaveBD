@@ -42,7 +42,9 @@ export default function PortfolioSection() {
                       <span className="text-[8px] md:text-[10px] text-gray-500 font-mono tracking-tight uppercase truncate px-2">devwavebd.com/{project.title.toLowerCase().replace(/\s+/g, '-')}</span>
                     </div>
                   </div>
-                  <ExternalLink size={14} className="text-gray-500 group-hover:text-brand-primary transition-colors cursor-pointer" />
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={14} className="text-gray-500 group-hover:text-brand-primary transition-colors cursor-pointer" />
+                  </a>
                 </div>
 
                 {/* Vertical Scrolling Image Container */}
@@ -55,13 +57,13 @@ export default function PortfolioSection() {
                   />
                   
                   {/* View Demo Button Overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                       <div className="px-8 py-3.5 rounded-full glass border-white/20 text-white font-bold text-sm tracking-widest uppercase shadow-2xl backdrop-blur-xl hover:scale-110 active:scale-95 transition-all cursor-pointer">
                         View Demo
                       </div>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Subtle Grain Overlay */}
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] pointer-events-none" />

@@ -4,12 +4,43 @@ import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle2 } from 'l
 import { useState, FormEvent } from 'react';
 
 export default function Contact() {
-  const [formState, setFormState] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState('sending');
-    setTimeout(() => setFormState('success'), 1500);
+    setErrorMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      projectType: formData.get('projectType'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormState('success');
+      } else {
+        setFormState('error');
+        setErrorMessage(result.error || 'Failed to send message.');
+      }
+    } catch (error) {
+      setFormState('error');
+      setErrorMessage('A network error occurred. Please try again.');
+    }
   };
 
   return (
@@ -79,19 +110,24 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 text-left">
+                    {formState === 'error' && (
+                      <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-bold">
+                        {errorMessage}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
                       <div className="space-y-2">
                         <label className="text-xs md:text-sm font-bold text-gray-400 ml-1">Full Name</label>
-                        <input required type="text" placeholder="John Doe" className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all" />
+                        <input name="name" required type="text" placeholder="John Doe" className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-xs md:text-sm font-bold text-gray-400 ml-1">Email Address</label>
-                        <input required type="email" placeholder="john@example.com" className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all" />
+                        <input name="email" required type="email" placeholder="john@example.com" className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs md:text-sm font-bold text-gray-400 ml-1">Project Type</label>
-                      <select required className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white focus:outline-none focus:bg-brand-bg focus:ring-2 focus:ring-brand-primary transition-all appearance-none cursor-pointer">
+                      <select name="projectType" required className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white focus:outline-none focus:bg-brand-bg focus:ring-2 focus:ring-brand-primary transition-all appearance-none cursor-pointer">
                         <option className="bg-brand-bg">WordPress Development</option>
                         <option className="bg-brand-bg">WooCommerce Store</option>
                         <option className="bg-brand-bg">Design & UI/UX</option>
@@ -101,7 +137,7 @@ export default function Contact() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs md:text-sm font-bold text-gray-400 ml-1">Your Message</label>
-                      <textarea required rows={4} placeholder="Tell us about your project..." className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all"></textarea>
+                      <textarea name="message" required rows={4} placeholder="Tell us about your project..." className="w-full px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 text-sm md:text-base text-white placeholder:text-gray-600 focus:outline-none focus:bg-white/10 focus:ring-2 focus:ring-brand-primary transition-all"></textarea>
                     </div>
                     <button 
                       type="submit" 

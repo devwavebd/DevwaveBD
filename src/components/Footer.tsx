@@ -1,7 +1,42 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Youtube, Instagram, MessageCircle, Send } from 'lucide-react';
+import { Facebook, Youtube, Instagram, MessageCircle, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { useState, FormEvent } from 'react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubscribe = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setEmail('');
+        setMessage('Subscribed successfully!');
+      } else {
+        setStatus('error');
+        setMessage(result.error || 'Subscription failed.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage('A network error occurred.');
+    }
+  };
+
   return (
     <footer className="bg-brand-bg relative pt-16 pb-10 border-t border-white/5" id="footer">
       {/* Top Banner (Working Hours) */}
@@ -40,13 +75,13 @@ export default function Footer() {
 
           {/* Links Sections */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 lg:pl-16 py-20">
-            {/* Company */}
+            {/* Services */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-8 font-sans">Company</h4>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Services</h4>
               <ul className="space-y-4">
-                {['Marketplace', 'Campaigns', 'Risk Management', 'Pricing'].map((link) => (
+                {['WordPress Dev', 'WooCommerce', 'Speed Optimization', 'SEO & Marketing'].map((link) => (
                   <li key={link}>
-                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                    <Link to="/services" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
                       {link}
                     </Link>
                   </li>
@@ -54,13 +89,13 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Explore */}
+            {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-8 font-sans">Explore</h4>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Quick Links</h4>
               <ul className="space-y-4">
-                {['Marketplace', 'Campaigns', 'Risk Management', 'Pricing'].map((link) => (
+                {['About Us', 'Our Pricing', 'Our Portfolio', 'Contact Us'].map((link) => (
                   <li key={link}>
-                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                    <Link to={link === 'About Us' ? '/about' : link === 'Our Pricing' ? '/pricing' : link === 'Our Portfolio' ? '/portfolio' : '/contact'} className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
                       {link}
                     </Link>
                   </li>
@@ -68,14 +103,19 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Industries */}
+            {/* Resources */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-8 font-sans">Industries</h4>
+              <h4 className="text-xl font-bold text-white mb-8 font-sans">Resources</h4>
               <ul className="space-y-4">
-                {['Economy', 'Financial Planning', 'Tax Return', 'Management'].map((link) => (
-                  <li key={link}>
-                    <Link to="#" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
-                      {link}
+                {[
+                  { label: 'Latest Blogs', path: '/blog' },
+                  { label: 'Case Studies', path: '/case-studies' },
+                  { label: 'Expert Team', path: '/team' },
+                  { label: 'Privacy Policy', path: '/privacy' }
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link to={item.path} className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -85,16 +125,29 @@ export default function Footer() {
             {/* Newsletter */}
             <div>
               <h4 className="text-xl font-bold text-white mb-8 font-sans">Newsletter</h4>
-              <div className="relative group">
+              <form onSubmit={handleSubscribe} className="relative group">
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email" 
+                  required
                   className="w-full bg-white/5 border border-white/10 rounded-lg py-4 px-6 text-white placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all pr-14"
                 />
-                <button className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-primary transition-colors hover:text-brand-primary">
-                  <Send size={20} />
+                <button 
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-primary transition-colors hover:text-brand-primary disabled:opacity-50"
+                >
+                  {status === 'loading' ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
                 </button>
-              </div>
+              </form>
+              {message && (
+                <p className={`mt-3 text-xs font-bold ${status === 'success' ? 'text-green-500' : 'text-red-500'} flex items-center`}>
+                  {status === 'success' && <CheckCircle2 size={14} className="mr-1" />}
+                  {message}
+                </p>
+              )}
             </div>
           </div>
         </div>

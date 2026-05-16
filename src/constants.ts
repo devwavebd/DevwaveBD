@@ -200,40 +200,76 @@ export const SERVICES = [
 
 export const PORTFOLIO = [
   {
-    title: 'Corporate Website',
-    category: 'Business Website',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
-    link: '#'
-  },
-  {
-    title: 'eCommerce Store',
+    title: 'Luxe Arabian Scents',
     category: 'WooCommerce',
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=2340&auto=format&fit=crop',
-    link: '#'
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Luxearabianscents-Best-Lattafa-Perfume-05-15-2026_09_36_PM.png',
+    link: 'https://luxearabianscents.com/'
   },
   {
-    title: 'Blog Website',
-    category: 'Personal Brand',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2340&auto=format&fit=crop',
-    link: '#'
+    title: 'The Nzone',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_49.png',
+    link: 'https://thenzone.com/'
   },
   {
-    title: 'Real Estate Website',
-    category: 'Listing Portal',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2346&auto=format&fit=crop',
-    link: '#'
+    title: 'F45 Training',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_50.png',
+    link: 'https://f45training.com/'
   },
   {
-    title: 'Agency Portal',
+    title: 'Karuna For You',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_51.png',
+    link: 'https://karunaforyou.com/'
+  },
+  {
+    title: 'Asia Service',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_52.png',
+    link: 'https://asiaservice.xyz/'
+  },
+  {
+    title: 'Pearl Cares',
+    category: 'Healthcare',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_53.png',
+    link: 'https://pearlcares.com/'
+  },
+  {
+    title: 'Union Dental Center',
+    category: 'Healthcare',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_54.png',
+    link: 'https://uniondentalcenter.co/'
+  },
+  {
+    title: 'Belle Parlour',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_55.png',
+    link: 'https://belleparlour.com/'
+  },
+  {
+    title: 'RDH Makeover',
     category: 'Creative Portfolio',
-    image: 'https://images.unsplash.com/photo-1522542550221-31fd195d5fe2?q=80&w=2340&auto=format&fit=crop',
-    link: '#'
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_56.png',
+    link: 'https://rdhmakeover.com/'
   },
   {
-    title: 'Food Delivery',
-    category: 'Restaurant App',
-    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2340&auto=format&fit=crop',
-    link: '#'
+    title: 'Crazy Seal',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_57.png',
+    link: 'https://crazyseal.com/'
+  },
+  {
+    title: 'Exterior Genie',
+    category: 'Business Website',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_58.png',
+    link: 'https://www.exteriorgenie.com/'
+  },
+  {
+    title: 'Rifat Academy',
+    category: 'Educational',
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Screenshot_59.png',
+    link: 'https://rifatacademy.com/'
   }
 ];
 
