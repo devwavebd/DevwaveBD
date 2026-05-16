@@ -64,8 +64,8 @@ export default function Contact() {
               
               <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 text-left">
                 {[
-                  { icon: Mail, label: 'Email Us', val: 'hello@devwavebd.com', color: 'bg-blue-500/10 text-blue-400' },
-                  { icon: Phone, label: 'Call Us', val: '+880 1234 567890', color: 'bg-green-500/10 text-green-400' },
+                  { icon: Mail, label: 'Email Us', val: 'devwavebd@gmail.com', color: 'bg-blue-500/10 text-blue-400' },
+                  { icon: Phone, label: 'Call Us', val: '+880 1351-984261', color: 'bg-green-500/10 text-green-400' },
                   { icon: MapPin, label: 'Visit Us', val: 'Dhaka, Bangladesh', color: 'bg-purple-500/10 text-purple-400' },
                   { icon: Clock, label: 'Hours', val: '9 AM - 6 PM (Mon-Sat)', color: 'bg-orange-500/10 text-orange-400' }
                 ].map((item, i) => (
@@ -83,11 +83,12 @@ export default function Contact() {
               <div className="pt-8 md:pt-10 border-t border-white/5 flex flex-col md:flex-row items-center gap-4 md:space-x-6">
                 <span className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest">Connect:</span>
                 <div className="flex space-x-4">
-                  {[MessageCircle, Send].map((Icon, idx) => (
-                    <a key={idx} href="#" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary hover:border-brand-primary transition-all">
-                      <Icon size={18} className="md:size-[20px]" />
-                    </a>
-                  ))}
+                  <a href="https://wa.me/8801351984261" target="_blank" rel="noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary hover:border-brand-primary transition-all">
+                    <MessageCircle size={18} className="md:size-[20px]" />
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61573635059456" target="_blank" rel="noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary hover:border-brand-primary transition-all">
+                    <Send size={18} className="md:size-[20px]" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -157,6 +158,43 @@ export default function Contact() {
                 )}
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Emergency Helpline Section */}
+      <section className="py-16 md:py-24 bg-brand-bg relative overflow-hidden border-t border-white/5">
+        <div className="custom-container">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter italic">
+              Emergency <span className="text-brand-primary">Helpline</span>
+            </h2>
+            <p className="text-gray-400 font-bold max-w-xl mx-auto">Instant support across these locations. We're here when you need us most.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { city: 'Dhaka', icon: MapPin, phone: '+8801537-274668', color: 'from-blue-500/20' },
+              { city: 'Barishal', icon: MapPin, phone: '+880 1731-389828', color: 'from-green-500/20' },
+              { city: 'Faridpur', icon: MapPin, phone: '+880 1309-880436', color: 'from-purple-500/20' },
+              { city: 'Dinajpur', icon: MapPin, phone: '+880 1351-984261', color: 'from-orange-500/20' }
+            ].map((item, i) => (
+              <div key={i} className={`group bg-gradient-to-br ${item.color} to-transparent border border-white/5 p-8 rounded-[2rem] hover:border-brand-primary/30 transition-all duration-300 transform hover:-translate-y-2`}>
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-primary">
+                    <item.icon size={20} />
+                  </div>
+                  <h4 className="text-xl font-black text-white tracking-tight italic uppercase">{item.city}</h4>
+                </div>
+                <a 
+                  href={`tel:${item.phone.replace(/[^0-9+]/g, '')}`} 
+                  className="block text-lg font-bold text-gray-300 group-hover:text-brand-primary transition-colors"
+                >
+                  {item.phone}
+                </a>
+                <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mt-2 group-hover:text-gray-400 transition-colors">Call Representative</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

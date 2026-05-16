@@ -156,15 +156,18 @@ export default function Footer() {
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Socials */}
           <div className="flex items-center space-x-6">
-            {[Facebook, Youtube, Instagram, MessageCircle].map((Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110"
-              >
-                <Icon size={24} />
-              </a>
-            ))}
+            <a href="https://www.facebook.com/profile.php?id=61573635059456" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110">
+              <Facebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/devwavebd" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110">
+              <Instagram size={24} />
+            </a>
+            <a href="https://wa.me/8801351984261" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110">
+              <MessageCircle size={24} />
+            </a>
+            <a href="mailto:devwavebd@gmail.com" className="text-gray-500 hover:text-brand-primary transition-all duration-300 transform hover:scale-110">
+              <Send size={24} />
+            </a>
           </div>
 
           {/* Copyright */}

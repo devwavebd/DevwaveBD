@@ -18,7 +18,7 @@ async function startServer() {
   // API Route: Contact Form
   app.post("/api/contact", async (req, res) => {
     try {
-      const { name, email, projectType, message } = req.body;
+      const { name, email, phone, projectType, message } = req.body;
 
       if (!resend) {
         console.warn("RESEND_API_KEY is not set. Email not sent.");
@@ -28,11 +28,12 @@ async function startServer() {
       const { data, error } = await resend.emails.send({
         from: 'Devwave Contact Form <onboarding@resend.dev>',
         to: [RECIPIENT_EMAIL],
-        subject: `New Contact Form Submission: ${projectType}`,
+        subject: `New Contact Form Submission: ${projectType || 'General'}`,
         html: `
           <h1>New Message from ${name}</h1>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Project Type:</strong> ${projectType}</p>
+          <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+          <p><strong>Project Type:</strong> ${projectType || 'General'}</p>
           <p><strong>Message:</strong></p>
           <p>${message}</p>
         `,
