@@ -115,9 +115,9 @@ export default function Hero() {
                 </div>
                 
                 <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
-                  alt="WordPress Performance Dashboard" 
-                  className="w-full h-full object-cover object-center opacity-60 mix-blend-screen"
+                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" 
+                  alt="WordPress Development Services" 
+                  className="w-full h-full object-cover object-center opacity-70 mix-blend-lighten"
                   referrerPolicy="no-referrer"
                 />
                 

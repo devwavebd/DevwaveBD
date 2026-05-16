@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Youtube, Instagram, MessageCircle, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { motion } from 'motion/react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -39,13 +40,30 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-bg relative pt-16 pb-10 border-t border-white/5" id="footer">
-      {/* Top Banner (Working Hours) */}
-      <div className="absolute top-0 right-0 left-0 lg:left-1/3 h-12 md:h-16 bg-brand-primary flex items-center justify-center lg:justify-start px-6 md:px-12 z-20">
-        <div className="text-white font-black text-[10px] md:text-sm tracking-widest uppercase">
-          Sat - Thu : 9:00 AM - 12:00 PM
+      {/* Top Banner (Scrolling Support Marquee) */}
+      <div className="absolute top-0 right-0 left-0 lg:left-1/3 z-20">
+        <div className="h-12 md:h-16 bg-brand-primary flex items-center overflow-hidden relative">
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ 
+              duration: 40, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+            className="flex whitespace-nowrap items-center px-12"
+          >
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="flex items-center mx-8">
+                <span className="text-white font-bold text-xs md:text-base tracking-wide">
+                  We provide 24/7 dedicated support — 7 days a week, 24 hours a day
+                </span>
+                <div className="w-2 h-2 rounded-full bg-white mx-12 opacity-50" />
+              </div>
+            ))}
+          </motion.div>
         </div>
-        {/* Tail element from image */}
-        <div className="absolute top-12 md:top-16 left-0 border-t-[12px] md:border-t-[16px] border-t-brand-primary border-r-[12px] md:border-r-[16px] border-r-transparent hidden lg:block" />
+        {/* Tail element (Folded style) */}
+        <div className="absolute top-full left-0 w-0 h-0 border-t-[12px] md:border-t-[16px] border-t-brand-primary border-l-[12px] md:border-l-[16px] border-l-transparent brightness-50 hidden lg:block" />
       </div>
 
       <div className="custom-container">
@@ -78,10 +96,10 @@ export default function Footer() {
             {/* Services */}
             <div>
               <h4 className="text-xl font-bold text-white mb-8 font-sans">Services</h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {['WordPress Dev', 'WooCommerce', 'Speed Optimization', 'SEO & Marketing'].map((link) => (
-                  <li key={link}>
-                    <Link to="/services" className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                  <li key={link} className="whitespace-nowrap">
+                    <Link to="/services" className="text-gray-500 hover:text-brand-primary transition-colors text-base font-medium">
                       {link}
                     </Link>
                   </li>
@@ -92,10 +110,10 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h4 className="text-xl font-bold text-white mb-8 font-sans">Quick Links</h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {['About Us', 'Our Pricing', 'Our Portfolio', 'Contact Us'].map((link) => (
-                  <li key={link}>
-                    <Link to={link === 'About Us' ? '/about' : link === 'Our Pricing' ? '/pricing' : link === 'Our Portfolio' ? '/portfolio' : '/contact'} className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                  <li key={link} className="whitespace-nowrap">
+                    <Link to={link === 'About Us' ? '/about' : link === 'Our Pricing' ? '/pricing' : link === 'Our Portfolio' ? '/portfolio' : '/contact'} className="text-gray-500 hover:text-brand-primary transition-colors text-base font-medium">
                       {link}
                     </Link>
                   </li>
@@ -106,15 +124,15 @@ export default function Footer() {
             {/* Resources */}
             <div>
               <h4 className="text-xl font-bold text-white mb-8 font-sans">Resources</h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {[
                   { label: 'Latest Blogs', path: '/blog' },
                   { label: 'Case Studies', path: '/case-studies' },
                   { label: 'Expert Team', path: '/team' },
                   { label: 'Privacy Policy', path: '/privacy' }
                 ].map((item) => (
-                  <li key={item.label}>
-                    <Link to={item.path} className="text-gray-500 hover:text-brand-primary transition-colors text-lg">
+                  <li key={item.label} className="whitespace-nowrap">
+                    <Link to={item.path} className="text-gray-500 hover:text-brand-primary transition-colors text-base font-medium">
                       {item.label}
                     </Link>
                   </li>
