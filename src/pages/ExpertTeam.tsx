@@ -5,40 +5,34 @@ import { Twitter, Linkedin, Github } from 'lucide-react';
 
 const TEAM = [
   { 
-    name: 'Ariful Islam', 
-    role: 'Lead WordPress Architect', 
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2340&auto=format&fit=crop',
-    bio: 'Specializing in high-performance WordPress engines and scalable architecture with over 10 years of experience.'
+    name: 'Ahnaf Akif', 
+    role: 'WP Security', 
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-16-at-11.41.31-PM.jpeg',
+    bio: 'Specializing in WordPress security hardening, malware removal, and proactive threat prevention.'
   },
   { 
-    name: 'Sarah Ahmed', 
-    role: 'Senior UI/UX Designer', 
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2344&auto=format&fit=crop',
-    bio: 'Crafting premium digital experiences that blend aesthetics with technical precision.'
+    name: 'Rayhan Rana', 
+    role: 'Project Manager', 
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Gemini_Generated_Image_7ih3af7ih3af7ih3.png',
+    bio: 'Ensuring seamless project delivery and coordination between our technical team and stakeholders.'
   },
   { 
-    name: 'John Doe', 
-    role: 'Speed Optimization Expert', 
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2340&auto=format&fit=crop',
+    name: 'STR Robin', 
+    role: 'AI Specialist', 
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/ChatGPT-Image-May-16-2026-11_58_50-PM.png',
+    bio: 'Leveraging cutting-edge AI technologies to automate workflows and enhance digital capabilities.'
+  },
+  { 
+    name: 'MD Ayan Alam', 
+    role: 'WooCommerce Expert', 
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-16-at-8.56.04-PM.jpeg',
+    bio: 'Crafting powerful, scalable eCommerce experiences with high-performance WooCommerce solutions.'
+  },
+  { 
+    name: 'MD Anas', 
+    role: 'Speed Optimizer', 
+    image: 'https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-16-at-10.56.27-PM.jpeg',
     bio: 'Passionate about web performance, reducing latency, and delivering lightning-fast load times.'
-  },
-  { 
-    name: 'Jane Smith', 
-    role: 'Head of Support', 
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2340&auto=format&fit=crop',
-    bio: 'Ensuring every client has a seamless experience through proactive maintenance and expert guidance.'
-  },
-  { 
-    name: 'Mikail Hossain', 
-    role: 'Full Stack Developer', 
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2340&auto=format&fit=crop',
-    bio: 'Expert in bridging backend logic with seamless frontend interactions in complex ecosystems.'
-  },
-  { 
-    name: 'Amina Khatun', 
-    role: 'SEO Strategist', 
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2340&auto=format&fit=crop',
-    bio: 'Helping brands dominate search results through data-driven technical SEO and content strategy.'
   }
 ];
 
@@ -68,16 +62,19 @@ export default function ExpertTeam() {
                     src={member.image} 
                     alt={member.name} 
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                    loading="lazy"
+                    decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                   
-                  {/* Social Overlay */}
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                    {[Linkedin, Twitter, Github].map((Icon, i) => (
-                      <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-brand-primary transition-colors">
-                        <Icon size={18} />
-                      </a>
-                    ))}
+                  {/* Social Overlay - Shows on Hover without color change to main image */}
+                  <div className="absolute inset-0 flex items-end justify-center pb-8 bg-black/0 transition-colors duration-500 group-hover:bg-black/5">
+                    <div className="flex items-center space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                      {[Linkedin, Twitter, Github].map((Icon, i) => (
+                        <a key={i} href="#" className="w-10 h-10 rounded-full bg-white backdrop-blur-md flex items-center justify-center text-brand-bg hover:bg-brand-primary hover:text-white transition-all shadow-lg">
+                          <Icon size={18} />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
