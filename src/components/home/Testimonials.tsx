@@ -14,32 +14,32 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 bg-brand-bg text-white overflow-hidden relative border-t border-white/5" id="testimonials">
+    <section className="py-16 md:py-24 bg-brand-bg text-white overflow-hidden relative border-t border-white/5" id="testimonials">
       {/* Decorative Glows */}
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[120px] -z-0" />
-      <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] -z-0" />
+      <div className="absolute -top-40 -right-40 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-brand-primary/10 rounded-full blur-[100px] md:blur-[120px] -z-0" />
+      <div className="absolute -bottom-40 -left-40 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-purple-600/20 rounded-full blur-[100px] md:blur-[120px] -z-0" />
 
       <div className="custom-container relative z-10">
-        <div className="text-center mb-20">
-          <p className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-3">Testimonials</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">What Our Clients Say</h2>
-          <div className="mt-6 flex justify-center text-white/5">
-            <Quote size={80} fill="currentColor" />
+        <div className="text-center mb-12 md:mb-20">
+          <p className="text-xs md:text-sm font-bold text-brand-primary uppercase tracking-widest mb-3">Testimonials</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">What Our Clients Say</h2>
+          <div className="mt-4 md:mt-6 flex justify-center text-white/5">
+            <Quote size={60} className="md:size-[80px]" fill="currentColor" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative min-h-[400px] flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="relative min-h-[350px] md:min-h-[400px] flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.5 }}
-                className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm relative"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+                className="p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm relative"
               >
-                <p className="text-xl text-gray-300 italic mb-8 leading-relaxed">
+                <p className="text-base md:text-xl text-gray-300 italic mb-6 md:mb-8 leading-relaxed">
                   "{TESTIMONIALS[activeIndex].content}"
                 </p>
                 <div className="flex items-center space-x-4">

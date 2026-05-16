@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Calendar } from 'lucide-react';
+import { Menu, X, Mail, Phone, MapPin, MessageCircle, ChevronRight, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
 
@@ -22,9 +22,10 @@ export default function Navbar() {
     : 'bg-transparent py-6 border-b border-white/0';
 
   return (
+    <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${navbarBg}`} id="navbar">
       <div className="custom-container">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="shrink-0">
             <img 
@@ -79,51 +80,135 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+    </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
+    {/* Mobile Menu */}
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden absolute top-24 left-6 right-6 bg-brand-bg/95 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl z-50 p-6"
-          >
-            <div className="space-y-2">
-              {NAV_LINKS.map((link) => {
-                const Icon = link.icon;
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-4 px-6 py-4 rounded-2xl text-base font-bold transition-all ${
-                      isActive 
-                        ? 'bg-brand-primary text-white' 
-                        : 'text-gray-400 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    <Icon size={20} />
-                    <span>{link.label}</span>
-                  </Link>
-                );
-              })}
-                  <div className="pt-6">
-                    <Link
-                      to="/contact"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] lg:hidden"
+          />
+          
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-brand-bg border-l border-white/10 z-[70] p-6 flex flex-col shadow-2xl overflow-y-auto lg:hidden"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <img 
+                  src="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Artboard-1-e1778821694516.png" 
+                  alt="Devwave BD" 
+                  className="w-[100px] h-auto brightness-0 invert"
+                />
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="space-y-6">
+                  {/* Quick Access Menu */}
+                  <div className="pb-4 border-b border-white/5">
+                    <Link 
+                      to="/blog" 
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-center px-6 py-5 rounded-2xl bg-brand-primary text-white font-bold shadow-lg"
+                      className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-brand-primary transition-all group"
                     >
-                      <Calendar size={20} className="mr-3" />
-                      Book a Strategy Session
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                          <MessageCircle size={16} />
+                        </div>
+                        <span className="text-sm font-bold uppercase tracking-widest">Our Blog</span>
+                      </div>
+                      <ChevronRight size={16} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </Link>
                   </div>
-            </div>
+
+                  <div>
+                    <span className="text-brand-primary text-[9px] font-black uppercase tracking-[0.3em] mb-4 block">Get In Touch</span>
+                    <div className="space-y-4">
+                      <a href="mailto:hello@devwavebd.com" className="flex items-center space-x-3 group">
+                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-brand-primary group-hover:border-brand-primary/30 transition-all">
+                          <Mail size={18} />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-gray-500 uppercase font-bold">Email Us</p>
+                          <p className="text-white text-sm font-bold">hello@devwavebd.com</p>
+                        </div>
+                      </a>
+
+                      <a href="tel:+880123456789" className="flex items-center space-x-3 group">
+                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-brand-primary group-hover:border-brand-primary/30 transition-all">
+                          <Phone size={18} />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-gray-500 uppercase font-bold">Call Anytime</p>
+                          <p className="text-white text-sm font-bold">+880 1234 56789</p>
+                        </div>
+                      </a>
+
+                      <div className="flex items-center space-x-3 group">
+                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400">
+                          <MapPin size={18} />
+                        </div>
+                        <div>
+                          <p className="text-[9px] text-gray-500 uppercase font-bold">Visit Us</p>
+                          <p className="text-white text-sm font-bold">Uttara, Dhaka, Bangladesh</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 border-t border-white/5">
+                    <span className="text-brand-primary text-[9px] font-black uppercase tracking-[0.3em] mb-4 block">Direct Chat</span>
+                    <a 
+                      href="https://wa.me/880123456789" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="flex items-center justify-between p-4 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-500 group hover:bg-green-500 hover:text-white transition-all duration-500"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                          <MessageCircle size={18} />
+                        </div>
+                        <span className="text-sm font-bold">WhatsApp Expert</span>
+                      </div>
+                      <ChevronRight size={18} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mt-auto pt-6 border-t border-white/5"
+              >
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center px-6 py-4 rounded-2xl bg-brand-primary text-white text-xs font-black shadow-xl shadow-brand-primary/30 uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all"
+                >
+                  <Calendar size={16} className="mr-3" />
+                  Free Consulting
+                </Link>
+              </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
+        </>
+      )}
+    </AnimatePresence>
+  </>
+);
 }

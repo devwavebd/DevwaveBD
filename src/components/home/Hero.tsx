@@ -4,23 +4,23 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-[180px] pb-20 lg:pb-32 overflow-hidden bg-brand-bg" id="hero">
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-16 lg:pt-[180px] lg:pb-32 overflow-hidden bg-brand-bg" id="hero">
       {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/20 rounded-full blur-[140px] opacity-40 mix-blend-screen pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] opacity-30 mix-blend-screen pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-brand-primary/20 rounded-full blur-[100px] md:blur-[140px] opacity-40 mix-blend-screen pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-purple-600/10 rounded-full blur-[80px] md:blur-[120px] opacity-30 mix-blend-screen pointer-events-none" />
       
       {/* Structural Background */}
       <div className="absolute inset-0 bg-dashed opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] pointer-events-none" />
       
       <div className="custom-container relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center space-x-3 px-4 py-2 rounded-full glass border-white/10 text-brand-primary text-xs font-bold uppercase tracking-[0.2em] mb-8"
+              className="inline-flex items-center space-x-3 px-4 py-2 rounded-full glass border-white/10 text-brand-primary text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary/40 opacity-75"></span>
@@ -33,7 +33,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-              className="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8"
+              className="text-[2.75rem] sm:text-7xl lg:text-8xl font-black text-white leading-[1.1] md:leading-[0.9] tracking-tighter mb-6 md:mb-8"
             >
               NEXT GEN <br />
               <span className="text-gradient">SOLUTIONS</span>
@@ -43,7 +43,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-lg md:text-xl text-gray-400 mb-10 max-w-lg leading-relaxed font-light"
+              className="text-base md:text-xl text-gray-400 mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light"
             >
               We craft high-performance WordPress ecosystems that don't just look good—they dominate competition and scale infinitely.
             </motion.p>
@@ -52,25 +52,25 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-wrap gap-6 items-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center lg:justify-start"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-brand-primary text-white font-bold shadow-2xl shadow-brand-primary/30 hover:scale-[1.03] active:scale-95 transition-all group overflow-hidden relative"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-10 py-3.5 sm:py-5 rounded-full bg-brand-primary text-white font-bold shadow-2xl shadow-brand-primary/30 hover:scale-[1.03] active:scale-95 transition-all group overflow-hidden relative text-sm sm:text-base"
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
                 <span className="relative z-10">Start Your Project</span>
-                <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform relative z-10" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform relative z-10" />
               </Link>
               
               <Link
                 to="/portfolio"
-                className="inline-flex items-center space-x-3 text-white font-semibold hover:text-brand-primary transition-colors group px-6 py-4"
+                className="inline-flex items-center space-x-3 text-white font-semibold hover:text-brand-primary transition-colors group px-6 py-2"
               >
-                <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-primary transition-all">
-                  <Play size={16} fill="currentColor" />
+                <span className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-primary transition-all">
+                  <Play size={12} className="md:size-[16px]" fill="currentColor" />
                 </span>
-                <span>View Showreel</span>
+                <span className="text-xs md:text-base">View Showreel</span>
               </Link>
             </motion.div>
 
@@ -78,23 +78,24 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="mt-8 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-3 gap-8"
+              transition={{ delay: 0.5, duration: 1 }}
+              className="mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/5 grid grid-cols-3 gap-4 md:gap-8 justify-items-center lg:justify-items-start"
             >
               <div>
-                <p className="text-2xl font-bold text-white tracking-tighter">99.9%</p>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Reliability</p>
+                <p className="text-xl md:text-2xl font-bold text-white tracking-tighter">99.9%</p>
+                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Reliability</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-white tracking-tighter">5.0</p>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Client Rating</p>
+                <p className="text-xl md:text-2xl font-bold text-white tracking-tighter">5.0</p>
+                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Rating</p>
               </div>
-              <div className="hidden sm:block">
-                <p className="text-2xl font-bold text-white tracking-tighter">100+</p>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Projects Done</p>
+              <div>
+                <p className="text-xl md:text-2xl font-bold text-white tracking-tighter">100+</p>
+                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Projects</p>
               </div>
             </motion.div>
-          </div>          {/* Right Visual Composition */}
+          </div>
+          {/* Right Visual Composition */}
           <div className="relative lg:block hidden h-full flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}

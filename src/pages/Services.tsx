@@ -14,9 +14,9 @@ export default function Services() {
         breadcrumb="WHAT WE DO"
       />
 
-      <section className="py-24 bg-brand-bg">
+      <section className="py-16 md:py-24 bg-brand-bg">
         <div className="custom-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -26,27 +26,27 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group flex flex-col md:flex-row gap-8 p-10 rounded-[3rem] bg-white/5 border border-white/5 hover:border-brand-primary/30 transition-all duration-500"
+                  className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] bg-white/5 border border-white/5 hover:border-brand-primary/30 transition-all duration-500"
                 >
-                  <div className="w-20 h-20 rounded-3xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-lg shadow-brand-primary/20 group-hover:scale-110 transition-transform">
-                    <Icon size={40} />
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-lg shadow-brand-primary/20 group-hover:scale-110 transition-transform">
+                    <Icon size={30} className="md:size-[40px]" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                    <p className="text-gray-400 mb-8 leading-relaxed">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{service.title}</h3>
+                    <p className="text-sm md:text-base text-gray-400 mb-6 md:mb-8 leading-relaxed">
                       {service.description} We use the latest technologies and best practices to ensure your website is modern, secure, and infinitely scalable.
                     </p>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 md:mb-8">
                       {['Fast Delivery', 'Modern Design', 'SEO Ready', '24/7 Support'].map((item, i) => (
-                        <li key={i} className="flex items-center text-sm font-bold text-gray-500">
-                          <Check size={14} className="mr-2 text-brand-primary" />
+                        <li key={i} className="flex items-center text-[11px] md:text-sm font-bold text-gray-500">
+                          <Check size={12} className="mr-2 text-brand-primary" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                     <Link 
                       to={service.link}
-                      className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-brand-primary hover:border-brand-primary transition-all group"
+                      className="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm text-white font-bold hover:bg-brand-primary hover:border-brand-primary transition-all group"
                     >
                       Detailed Service Info
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

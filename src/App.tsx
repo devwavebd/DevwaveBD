@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import MobileBottomNav from './components/MobileBottomNav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -18,7 +19,7 @@ export default function App() {
       <ScrollToTop />
       <div className="min-h-screen bg-brand-bg flex flex-col font-sans selection:bg-brand-primary selection:text-white" id="app-root">
         <Navbar />
-        <main className="grow">
+        <main className="grow pb-24 lg:pb-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -32,6 +33,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <MobileBottomNav />
       </div>
     </Router>
   );

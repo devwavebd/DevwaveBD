@@ -5,27 +5,27 @@ export default function Footer() {
   return (
     <footer className="bg-brand-bg relative pt-16 pb-10 border-t border-white/5" id="footer">
       {/* Top Banner (Working Hours) */}
-      <div className="absolute top-0 right-0 left-0 lg:left-1/3 h-16 bg-brand-primary flex items-center px-8 lg:px-12 z-20">
-        <div className="text-white font-bold text-sm tracking-wide">
-          Saturday - Thursday : 9:00 Am - 12:00 Pm
+      <div className="absolute top-0 right-0 left-0 lg:left-1/3 h-12 md:h-16 bg-brand-primary flex items-center justify-center lg:justify-start px-6 md:px-12 z-20">
+        <div className="text-white font-black text-[10px] md:text-sm tracking-widest uppercase">
+          Sat - Thu : 9:00 AM - 12:00 PM
         </div>
         {/* Tail element from image */}
-        <div className="absolute top-16 left-0 border-t-[16px] border-t-brand-primary border-r-[16px] border-r-transparent hidden lg:block" />
+        <div className="absolute top-12 md:top-16 left-0 border-t-[12px] md:border-t-[16px] border-t-brand-primary border-r-[12px] md:border-r-[16px] border-r-transparent hidden lg:block" />
       </div>
 
       <div className="custom-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 relative z-10 items-center">
           {/* Logo Section */}
-          <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-start lg:border-r lg:border-white/10 lg:pr-16 py-20">
-            <Link to="/" className="inline-block mb-8">
+          <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-start lg:border-r lg:border-white/10 lg:pr-16 py-12 md:py-20">
+            <Link to="/" className="inline-block mb-6 md:mb-8">
               <img 
                 src="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Artboard-1-e1778821694516.png" 
                 alt="Devwave BD Logo" 
-                className="w-[220px] h-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+                className="w-[180px] md:w-[220px] h-auto brightness-0 invert opacity-90"
               />
             </Link>
             {/* Small Map */}
-            <div className="w-full max-w-[320px] h-40 rounded-2xl overflow-hidden opacity-50 hover:opacity-80 transition-opacity border border-white/10 shadow-2xl">
+            <div className="w-full max-w-[320px] h-32 md:h-40 rounded-2xl overflow-hidden opacity-40 hover:opacity-100 transition-opacity border border-white/10 shadow-2xl grayscale hover:grayscale-0">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.953388867!2d90.3371962382433!3d23.7806206512683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa569fd2a1158ee!2sDhaka!5e0!3m2!1sen!2sbd!4v1715750000000!5m2!1sen!2sbd" 
                 width="100%" 
@@ -115,7 +115,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="text-gray-500 text-sm font-medium tracking-tight text-center md:text-right">
+          <div className="text-gray-500 text-sm font-medium tracking-tight text-center md:text-right pb-[100px] md:pb-0">
             © {new Date().getFullYear()} Devwarebd. All Rights Reserved. <span className="text-gray-600 ml-1">Designed & Developed by RARA Team</span>
           </div>
         </div>
