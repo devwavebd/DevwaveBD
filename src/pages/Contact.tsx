@@ -2,6 +2,7 @@ import PageHeader from '../components/PageHeader';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle2 } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -45,6 +46,10 @@ export default function Contact() {
 
   return (
     <div id="contact-page">
+      <SEO 
+        title="Contact Us" 
+        description="Ready to start your WordPress project? Contact DevWave BD for expert development, speed optimization, and premium support. We're here to help."
+      />
       <PageHeader 
         title="Get in Touch" 
         subtitle="Ready to start your project? Fill out the form and our expert team will get back to you within 24 hours."

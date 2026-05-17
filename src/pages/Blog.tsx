@@ -4,10 +4,15 @@ import { motion } from 'motion/react';
 import { Calendar, User, Search, ArrowRight, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTA from '../components/home/CTA';
+import SEO from '../components/SEO';
 
 export default function Blog() {
   return (
     <div id="blog-page">
+      <SEO 
+        title="Blog & Insights" 
+        description="Stay updated with the latest WordPress trends, development best practices, and expert tips to grow your agency or business."
+      />
       <PageHeader 
         title="Agency Insights" 
         subtitle="Stay updated with the latest WordPress trends, best practices, and expert tips to grow your business."

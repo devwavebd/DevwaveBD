@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Check } from 'lucide-react';
 import CTA from '../components/home/CTA';
+import SEO from '../components/SEO';
 
 export default function Services() {
   return (
     <div id="services-page">
+      <SEO 
+        title="Our Services" 
+        description="Explore our specialized WordPress services including theme development, speed optimization, eCommerce solutions, and technical SEO."
+      />
       <PageHeader 
         title="Our Specialized Services" 
         subtitle="Comprehensive WordPress solutions tailored to your unique business needs. From development to digital growth."

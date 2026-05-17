@@ -3,10 +3,15 @@ import CTA from '../components/home/CTA';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import { motion } from 'motion/react';
 import { Target, Eye, Users, Trophy, Linkedin, Twitter, Github } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <div id="about-page">
+      <SEO 
+        title="About Us" 
+        description="Learn more about DevWave BD, our mission to empower businesses with scalable WordPress technology, and our team of expert developers."
+      />
       <PageHeader 
         title="About Devwave BD" 
         subtitle="We are a WordPress-focused digital agency on a mission to build websites that drive growth and deliver real impact."
