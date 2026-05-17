@@ -49,6 +49,15 @@
     to { background-position: 200% center; }
   }
 
+  @keyframes shimmer-box {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer-box 2.5s infinite linear;
+  }
+
   .custom-container {
     @apply max-w-[1285px] mx-auto px-5 sm:px-8 lg:px-10;
   }

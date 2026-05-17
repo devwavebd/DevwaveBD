@@ -57,7 +57,10 @@ export default function ExpertTeam() {
                 viewport={{ once: true }}
                 className="group text-center lg:text-left"
               >
-                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl relative">
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl relative bg-white/[0.02]">
+                  {/* Loading Shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+                  
                   <img 
                     src={member.image} 
                     alt={member.name} 

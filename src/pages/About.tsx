@@ -77,7 +77,10 @@ export default function About() {
                 whileHover={{ y: -10 }}
                 className="group cursor-default"
               >
-                <div className="aspect-[4/5] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 shadow-2xl shadow-brand-primary/5 relative">
+                <div className="aspect-[4/5] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 shadow-2xl shadow-brand-primary/5 relative bg-white/[0.02]">
+                  {/* Loading Shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+
                   <img 
                     src={member.image} 
                     alt={member.name} 

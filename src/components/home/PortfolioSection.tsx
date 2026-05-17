@@ -48,12 +48,17 @@ export default function PortfolioSection() {
                 </div>
 
                 {/* Vertical Scrolling Image Container */}
-                <div className="relative flex-1 overflow-hidden group/img">
+                <div className="relative flex-1 overflow-hidden group/img bg-white/[0.02]">
+                  {/* Loading Shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+                  
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-auto absolute top-0 left-0 transition-transform duration-[8000ms] ease-in-out group-hover:translate-y-[calc(-100%+416px)]"
+                    className="w-full h-auto absolute top-0 left-0 transition-transform duration-[8000ms] ease-in-out group-hover:translate-y-[calc(-100%+416px)] will-change-transform"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* View Demo Button Overlay */}
