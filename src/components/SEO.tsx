@@ -29,6 +29,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={currentUrl} />
+      <link rel="icon" type="image/png" href="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/028af78d-9176-47d7-bc31-d5091af8941c-e1778820234731.png" />
+      <link rel="apple-touch-icon" href="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/028af78d-9176-47d7-bc31-d5091af8941c-e1778820234731.png" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
