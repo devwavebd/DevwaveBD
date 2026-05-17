@@ -119,6 +119,9 @@ export default function Hero() {
                   alt="WordPress Development Services" 
                   className="w-full h-full object-cover object-center opacity-70 mix-blend-lighten"
                   referrerPolicy="no-referrer"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="sync"
                 />
                 
                 {/* Gradient Overlay */}

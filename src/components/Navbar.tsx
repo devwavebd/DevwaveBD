@@ -32,6 +32,9 @@ export default function Navbar() {
               src="https://dev-devwavebdmedialibrary.pantheonsite.io/wp-content/uploads/2026/05/Artboard-1-e1778821694516.png" 
               alt="Devwave BD" 
               className="w-[140px] md:w-[160px] h-auto object-contain brightness-0 invert"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
             />
           </Link>
 
